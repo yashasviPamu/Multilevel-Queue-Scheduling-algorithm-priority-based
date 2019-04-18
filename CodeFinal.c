@@ -240,9 +240,10 @@ int main()
 
         }
 
-        printf("The Queues arranged in ascending order of priority\n");
-        for(i=0;i<3;++i)
-            printf("%d\n",pr[i]);
+        printf("The ascending order of priority: \n");
+        for(i=0;i<3;++i){
+           printf("Queue with priority: %d\n",pr[i]); 
+        }
           int wait =0;
         int h=0;
             h=pr[0];
