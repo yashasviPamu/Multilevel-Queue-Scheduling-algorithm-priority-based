@@ -104,7 +104,8 @@ return tat;
 int * Queue2(int *wait)  // priority
 {
 printf("\nPriority Scheduling\n");
-int i,j,n,pos,temp,avg_wt,avg_tt;
+int i,j,n,pos,temp;
+float avg_wt,avg_tt;
 int total=0,bt[20],p[20],wt[20],pr[20];
 static int tt[20];
 
@@ -146,7 +147,7 @@ p[pos]=temp;
 
 wt[0]= *wait;	
 
-for(i=1;i<n;i++)
+for(i=0;i<n;i++)
 {
 wt[i]= *wait;
 for(j=0;j<i;j++)
@@ -167,8 +168,8 @@ printf("\nP[%d]\t\t  %d\t\t    %d\t\t\t%d",p[i],bt[i],wt[i],tt[i]);
 }
 
 avg_tt=total/n;
-printf("\n\nAverage Waiting Time=%d",avg_wt);
-printf("\nAverage Turnaround Time=%d\n",avg_tt);
+printf("\n\nAverage Waiting Time=%f",avg_wt);
+printf("\nAverage Turnaround Time=%f\n",avg_tt);
 *wait = tt[n-1];
 return tt;
 }
@@ -177,8 +178,9 @@ int * queue3(int * wait)    //first come first serve
 {
 printf("\nFirst come First Serve\n");
 
-int n,bt[20],wt[20],avg_wt=0,avg_tt=0,i,j;
+int n,bt[20],wt[20],i,j;
 static int tt[20];
+float avg_wt=0,avg_tt=0;
 
 printf("Enter total number of processes(maximum 20):");
 scanf("%d",&n);
@@ -207,6 +209,10 @@ avg_wt+=wt[i];
 avg_tt+=tt[i];
 printf("\nP[%d]\t\t%d\t\t%d\t\t%d",i+1,bt[i],wt[i],tt[i]);
 }
+avg_wt=avg_wt/n; 
+avg_tt=avg_tt/n;
+printf("\n\nAverage Waiting Time=%f",avg_wt);
+printf("\nAverage Turnaround Time=%f\n",avg_tt);
 return tt;
     }
 
@@ -240,10 +246,9 @@ int main()
 
         }
 
-        printf("The ascending order of priority: \n");
-        for(i=0;i<3;++i){
-           printf("Queue with priority: %d\n",pr[i]); 
-        }
+        printf("The Queues arranged in ascending order of priority\n");
+        for(i=0;i<3;++i)
+            printf("%d\n",pr[i]);
           int wait =0;
         int h=0;
             h=pr[0];
@@ -344,5 +349,4 @@ printf("%d",val);
 }
 printf("\n\n");
 }
-
 
